@@ -399,7 +399,6 @@ option {
 .badge-d { background: #7f1d1d; color: #fca5a5; }
 .badge-e { background: #4c1d95; color: #d8b4fe; }
 
-/* Summary Box */
 .summary-box {
   margin-top: 28px;
   background: linear-gradient(145deg, var(--bg-card), var(--bg-input));
@@ -442,3 +441,170 @@ footer {
 .text-right { text-align: right; }
 .mb-2 { margin-bottom: 12px; }
 .mt-3 { margin-top: 24px; }
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  /* Sembunyikan elemen yang tidak diperlukan */
+  .no-print,
+  .app-header,
+  .dashboard-grid .card:first-child,
+  .form-actions,
+  footer,
+  .badge-success,
+  .btn,
+  .app-subtitle,
+  .empty-state,
+  .btn-logout {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.2cm;
+  }
+
+  body {
+    background: white;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: 'Times New Roman', serif;
+    color: black;
+  }
+
+  .dashboard-grid {
+    display: block;
+  }
+
+  .card {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    background: white;
+    page-break-inside: avoid;
+    transform: none !important;
+    width: auto !important;
+  }
+
+  /* Kop Surat */
+  .kop-surat {
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .kop-surat h2 {
+    font-size: 13pt;
+    margin: 0;
+    font-weight: bold;
+  }
+  .kop-surat h3 {
+    font-size: 11pt;
+    margin: 2px 0;
+  }
+  .kop-surat h4 {
+    font-size: 10pt;
+    margin: 2px 0;
+  }
+  .kop-surat p {
+    margin: 2px 0;
+    font-size: 9pt;
+  }
+  .kop-surat hr {
+    border: 1px solid black;
+    margin: 4px 0;
+  }
+
+  .khs-info {
+    margin-bottom: 6px;
+  }
+  .khs-info p {
+    margin: 2px 0;
+    font-size: 10pt;
+  }
+
+  .table-container {
+    overflow: visible;
+    margin: 4px 0;
+  }
+  .khs-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: black;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  .khs-table th,
+  .khs-table td {
+    border: 1px solid black;
+    padding: 3px 5px;
+    text-align: left;
+    color: black !important;
+    background: white !important;
+  }
+  .khs-table th {
+    background: #eee !important;
+    font-weight: bold;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .badge-a, .badge-b, .badge-c, .badge-d, .badge-e {
+    background: none !important;
+    color: black !important;
+    font-weight: bold;
+    padding: 0;
+  }
+
+  .summary-box {
+    background: none;
+    border: 1px solid black;
+    padding: 5px 8px;
+    display: flex;
+    justify-content: space-around;
+    margin: 6px 0;
+    page-break-inside: avoid;
+  }
+  .summary-item span {
+    color: black;
+    font-size: 9pt;
+  }
+  .summary-item strong {
+    color: black;
+    font-size: 11pt;
+  }
+
+  .tanda-tangan {
+    margin-top: 12px;
+    text-align: right;
+    width: 100%;
+    page-break-before: avoid;
+    page-break-inside: avoid;
+  }
+  .tanda-tangan p {
+    margin: 2px 0;
+    color: black;
+    font-size: 9pt;
+  }
+
+  * {
+    color: black !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .card,
+  .table-container,
+  .khs-table {
+    overflow: visible !important;
+  }
+
+  .khs-table td {
+    word-break: break-word;
+  }
+}
